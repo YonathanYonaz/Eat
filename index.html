@@ -6,14 +6,15 @@
     <title>Interactive Invitation</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- Tambahkan jsPDF -->
 </head>
 
-<audio id="backgroundMusic" autoplay loop>
-    <source src="party4u.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-</audio>
-
 <body>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="party4u.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
     <div class="container">
         <h1>"Makan apa kita hari ini?"</h1>
         <div id="question1" class="question">
@@ -22,9 +23,8 @@
             <input type="button" value="Next" onclick="checkName()">
         </div>
         <div id="question2" class="question hidden">
-
             <p>Annyeong Cilla! jadi makan apa? </p>
-            <p id="selectedFoodText">Selected food: None</p> <!-- Added this line -->
+            <p id="selectedFoodText">Selected food: None</p>
             <div class="food-image-container">
                 <div class="food-option" onclick="selectFood('한솥', this)">
                     <img src="assets\hansot.png" alt="Hansot">
@@ -40,7 +40,6 @@
                     <input type="text" id="otherFood" class="hidden" placeholder="Please specify">
                 </div>
             </div>
-            <!-- <input type="button" value="Back" onclick="goBackToQuestion1()"> -->
             <input type="button" value="Next" onclick="checkFood()">
         </div>
         <div id="question3" class="question hidden">
@@ -52,9 +51,11 @@
             <input type="button" value="Back" onclick="goBackToQuestion2()">
             <input type="button" value="Submit" onclick="submitForm()">
         </div>
-        <div id="finalMessage" class="hidden">
-            <h2>Oke hari ini kita makan: </h2>
-            <p id="summary"></p>
+        <div id="summary" class="question hidden">
+            <h3>Summary</h3>
+            <p id="summaryText"></p>
+            <!-- Tombol Send Receipt -->
+            <input type="button" id="sendReceiptBtn" value="Send Receipt" onclick="generatePDF()">
         </div>
     </div>
 </body>
