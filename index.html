@@ -10,11 +10,6 @@
 </head>
 
 <body>
-    <audio id="backgroundMusic" autoplay loop>
-        <source src="party4u.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
     <div class="container">
         <h1>"Makan apa kita hari ini?"</h1>
         <div id="question1" class="question">
@@ -58,5 +53,11 @@
             <input type="button" id="sendReceiptBtn" value="Send Receipt" onclick="generatePDF()">
         </div>
     </div>
+    <audio id="backgroundMusic" loop>
+        <source src="party4u.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="playMusicBtn" class="music-btn" onclick="playMusic()">Play Music</button>
+    <button id="muteMusicBtn" class="music-btn" onclick="toggleMute()">Mute</button>
 </body>
 </html>
