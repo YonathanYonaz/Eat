@@ -102,3 +102,17 @@ input[type="button"]:hover {
     transform: scale(1.1);
     transition: transform 0.2s ease;
 }
+
+#sendReceiptBtn {
+    background-color: #d85d6a;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sendReceiptBtn:hover {
+    background-color: #b34f5b;
+}
