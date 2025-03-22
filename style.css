@@ -116,3 +116,49 @@ input[type="button"]:hover {
 #sendReceiptBtn:hover {
     background-color: #b34f5b;
 }
+
+/* Posisi tombol Play dan Mute di bagian bawah */
+.music-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+}
+
+/* Gaya untuk tombol Play dan Mute yang lebih kecil */
+.music-btn {
+    background-color: #d85d6a; /* Warna latar belakang merah muda */
+    color: white; /* Warna teks putih */
+    font-size: 14px; /* Ukuran font lebih kecil */
+    padding: 8px 14px; /* Jarak dalam tombol lebih kecil */
+    border-radius: 8px; /* Sudut tombol melengkung */
+    border: none; /* Menghapus border default */
+    cursor: pointer; /* Menampilkan pointer saat kursor berada di atas tombol */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efek hover saat kursor berada di atas tombol */
+.music-btn:hover {
+    background-color: #b34f5b; /* Warna latar belakang berubah menjadi lebih gelap */
+    transform: scale(1.1); /* Memperbesar tombol sedikit */
+}
+
+/* Gaya tombol yang telah dipilih (misalnya, Play) */
+#playMusicBtn:disabled {
+    background-color: #bbb; /* Warna tombol yang tidak aktif */
+    cursor: not-allowed; /* Menonaktifkan kursor pointer */
+}
+
+/* Gaya tombol mute saat dimute */
+#muteMusicBtn {
+    background-color: #4e4e4e; /* Warna latar belakang gelap untuk mute */
+    color: #fff; /* Teks berwarna putih */
+}
+
+/* Efek hover untuk tombol mute */
+#muteMusicBtn:hover {
+    background-color: #333; /* Warna latar belakang lebih gelap saat hover */
+}
