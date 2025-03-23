@@ -5,40 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Invitation</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- Tambahkan jsPDF -->
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
 </head>
-
 <body>
     <div class="container">
         <h1>"Makan apa kita hari ini?"</h1>
+        
         <div id="question1" class="question">
             <p>이름?</p>
             <input type="text" id="name" placeholder="">
             <input type="button" value="Next" onclick="checkName()">
         </div>
+
         <div id="question2" class="question hidden">
-            <p>Annyeong Cilla! jadi makan apa? </p>
+            <p>Annyeong! It's you!</p>
             <p id="selectedFoodText">Selected food: None</p>
-            <div class="food-image-container">
-                <div class="food-option" onclick="selectFood('한솥', this)">
-                    <img src="assets\hansot.png" alt="Hansot">
+            <div class="food-slider-container">
+                <div class="food-image-wrapper">
+                    <div class="food-image-container" id="foodContainer">
+                        <div class="food-option" onclick="selectFood('한솥', this)">
+                            <img src="assets/hansot.png" alt="Hansot">
+                        </div>
+                        <div class="food-option" onclick="selectFood('KFC', this)">
+                            <img src="assets/kfc.png" alt="KFC">
+                        </div>
+                        <div class="food-option" onclick="selectFood('CU', this)">
+                            <img src="assets/cu.png" alt="CU">
+                        </div>
+                        <div class="food-option" onclick="selectFood('Lotteria', this)">
+                            <img src="assets/lotteria.png" alt="Lotteria">
+                        </div>
+                        <div class="food-option" onclick="selectFood('others', this)">
+                            <img src="assets/others.png" alt="others">
+                        </div>
+                    </div>
                 </div>
-                <div class="food-option" onclick="selectFood('KFC', this)">
-                    <img src="assets\kfc.png" alt="KFC">
-                </div>
-                <div class="food-option" onclick="selectFood('lotteria', this)">
-                    <img src="assets\lotteria.png" alt="Lotteria">
-                </div>
-                <div class="food-option others" onclick="selectFood('others', this)">
-                    <img src="assets\others.png" alt="Others">
-                    <input type="text" id="otherFood" class="hidden" placeholder="Please specify">
-                </div>
+                <input type="text" id="otherFoodInput" class="hidden" placeholder="Please specify">
             </div>
             <input type="button" value="Next" onclick="checkFood()">
         </div>
+
         <div id="question3" class="question hidden">
-            <p>Would you like to dine in or take it to go?</p>
+            <p>Okeyy! Makan dimana?</p>
             <select id="dineOption">
                 <option value="dinein">Dine In</option>
                 <option value="togo">To Go</option>
@@ -46,18 +55,22 @@
             <input type="button" value="Back" onclick="goBackToQuestion2()">
             <input type="button" value="Submit" onclick="submitForm()">
         </div>
+
         <div id="summary" class="question hidden">
-            <h3>Summary</h3>
+            <h3>ALL DONE! SO...</h3>
             <p id="summaryText"></p>
-            <!-- Tombol Send Receipt -->
-            <input type="button" id="sendReceiptBtn" value="Send Receipt" onclick="generatePDF()">
+            <input type="button" id="sendReceiptBtn" value="Print" onclick="generatePDF()">
         </div>
     </div>
     <audio id="backgroundMusic" loop>
         <source src="party4u.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+    
+    <!-- Tombol Play -->
     <button id="playMusicBtn" class="music-btn" onclick="playMusic()">Play Music</button>
+    
+    <!-- Tombol Mute -->
     <button id="muteMusicBtn" class="music-btn" onclick="toggleMute()">Mute</button>
 </body>
 </html>
