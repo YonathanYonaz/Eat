@@ -18,12 +18,12 @@ function selectFood(food, element) {
     const foodOptions = document.querySelectorAll('.food-option');
     foodOptions.forEach(option => option.classList.remove('selected'));
 
-    if (food !== 'others') {
-        document.getElementById('otherFood').classList.add('hidden');
-    }
-
     if (food === 'others') {
-        document.getElementById('otherFood').classList.remove('hidden');
+        document.getElementById('otherFoodInput').classList.remove('hidden');
+        document.getElementById('otherFoodInput').focus(); 
+    } else {
+        document.getElementById('otherFoodInput').classList.add('hidden');
+        document.getElementById('otherFoodInput').value = ''; 
     }
 
     if (selectedElement) {
@@ -32,15 +32,17 @@ function selectFood(food, element) {
     element.classList.add('selected');
     selectedElement = element;
 }
-
 function goBackToQuestion2() {
     document.getElementById('question2').classList.remove('hidden');
     document.getElementById('question3').classList.add('hidden');
 }
 
+
 function checkFood() {
-    if (!selectedFood) {
-        alert("Please select a food option!");
+    var otherFoodInput = document.getElementById('otherFoodInput').value;
+
+    if (!selectedFood || (selectedFood === 'others' && !otherFoodInput.trim())) {
+        alert("Please select a food option and specify your choice for 'Others' if applicable.");
         return;
     }
 
@@ -49,10 +51,15 @@ function checkFood() {
 }
 
 function submitForm() {
-    var otherFoodInput = document.getElementById('otherFood').value;
+    var otherFoodInput = document.getElementById('otherFoodInput').value;
     var dineOption = document.getElementById('dineOption').value;
 
-    var food = (selectedFood === 'others' && otherFoodInput) ? otherFoodInput : selectedFood;
+    var food = (selectedFood === 'others' && otherFoodInput.trim()) ? otherFoodInput : selectedFood;
+
+    if (!food) {
+        alert("Please specify your food choice.");
+        return;
+    }
 
     var summaryText = `Cilla\n ~ ${food}\n ~ ${dineOption === 'dinein' ? 'Dine In' : 'To Go'}`;
 
@@ -61,13 +68,12 @@ function submitForm() {
     document.getElementById('summaryText').textContent = summaryText;
 }
 
-// Fungsi untuk menghasilkan PDF
 function generatePDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
     const name = document.getElementById('name').value;
-    const food = selectedFood === 'others' ? document.getElementById('otherFood').value : selectedFood;
+    const food = selectedFood === 'Others' ? document.getElementById('otherFood').value : selectedFood;
     const dineOption = document.getElementById('dineOption').value;
 
     doc.text('Pilihan makan', 20, 20);
@@ -80,18 +86,25 @@ function generatePDF() {
 
 let isMuted = false;
 
-// Fungsi untuk memulai musik
+// Function to play music
 function playMusic() {
     const audio = document.getElementById('backgroundMusic');
-    audio.volume = 0.25; // Set volume ke 25%
-    audio.play(); // Memulai musik
-    document.getElementById('playMusicBtn').style.display = 'none'; // Sembunyikan tombol Play setelah dipilih
+    audio.volume = 0.25; // Set volume to 25%
+    audio.play(); // Start playing music
+    document.getElementById('playMusicBtn').style.display = 'none'; // Hide Play button after it has been clicked
 }
 
-// Fungsi untuk mute atau unmute musik
+// Function to mute or unmute music
 function toggleMute() {
     const audio = document.getElementById('backgroundMusic');
-    isMuted = !isMuted;
-    audio.muted = isMuted;
-    document.getElementById('muteMusicBtn').textContent = isMuted ? 'Unmute' : 'Mute';
+    isMuted =! isMuted; // Toggle the mute status
+    audio.muted = isMuted; // Set the mute property of the audio element
+    
+    // Update the button text based on the mute status
+    const muteButton = document.getElementById('muteMusicBtn');
+    muteButton.textContent = isMuted ? 'Unmute' : 'Mute'; // Toggle between Mute and Unmute text
 }
+
+let scrollAmount = 0;
+const scrollStep = 90;
+const foodContainer = document.getElementById("foodContainer");
