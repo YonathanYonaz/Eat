@@ -267,3 +267,10 @@ input[type="button"]:hover {
 .food-option.others.selected + #otherFoodInput {
     display: block; /* Make the input visible when "Others" is selected */
 }
+
+.spline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
