@@ -7,7 +7,7 @@ function checkName() {
         document.getElementById('question1').classList.add('hidden');
         document.getElementById('question2').classList.remove('hidden');
     } else {
-        alert('Sorry, this invitation is only for Cilla!');
+        alert('Sorry, this is only for Cilla!');
     }
 }
 
