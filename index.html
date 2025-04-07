@@ -10,7 +10,13 @@
 </head>
 <body>
     <div class="spline-container">
-        <iframe src="https://my.spline.design/molang3dcopy-9432dffb914c4b495e8ea51b58cee093/" frameborder="0" width="250px" height="250px"></iframe>
+        <iframe src="https://my.spline.design/molang3dcopy-9432dffb914c4b495e8ea51b58cee093/" 
+        frameborder="0" 
+        width="250px" 
+        height="250px"
+        allow="autoplay; fullscreen; vr; accelerometer; gyroscope"
+        style="touch-action: manipulation; border-radius: 16px;">
+        </iframe>
     </div>
     
     <div class="container">
@@ -30,6 +36,9 @@
                     <div class="food-image-container" id="foodContainer">
                         <div class="food-option" onclick="selectFood('한솥', this)">
                             <img src="assets/hansot.png" alt="Hansot">
+                        </div>
+                        <div class="food-option" onclick="selectFood('본도시락', this)">
+                            <img src="assets/dosirak.png" alt="Bon Dosirak">
                         </div>
                         <div class="food-option" onclick="selectFood('KFC', this)">
                             <img src="assets/kfc.png" alt="KFC">
