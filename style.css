@@ -273,4 +273,7 @@ input[type="button"]:hover {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    overflow: hidden;
+    border-radius: 16px;
+    touch-action: manipulation;
 }
