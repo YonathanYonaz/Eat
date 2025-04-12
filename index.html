@@ -25,20 +25,17 @@
         <div id="question1" class="question">
             <p>이름?</p>
             <input type="text" id="name" placeholder="">
-            <input type="button" value="Next" onclick="checkName()">
+            <input type="button" value="다음" onclick="checkName()">
         </div>
 
         <div id="question2" class="question hidden">
-            <p>Annyeong! It's you!</p>
+            <p>Annyeong! It's you!☺️</p>
             <p id="selectedFoodText">Selected food: None</p>
             <div class="food-slider-container">
                 <div class="food-image-wrapper">
                     <div class="food-image-container" id="foodContainer">
                         <div class="food-option" onclick="selectFood('한솥', this)">
                             <img src="assets/hansot.png" alt="Hansot">
-                        </div>
-                        <div class="food-option" onclick="selectFood('본도시락', this)">
-                            <img src="assets/dosirak.png" alt="Bon Dosirak">
                         </div>
                         <div class="food-option" onclick="selectFood('KFC', this)">
                             <img src="assets/kfc.png" alt="KFC">
@@ -52,8 +49,17 @@
                         <div class="food-option" onclick="selectFood('GS25', this)">
                             <img src="assets/gs25.png" alt="GS25">
                         </div>
+                        <div class="food-option" onclick="selectFood('GGgo', this)">
+                            <img src="assets/GGgo.png" alt="GGgo">
+                        </div>
                         <div class="food-option" onclick="selectFood('KorBeq', this)">
                             <img src="assets/korbeq.png" alt="KorBeq">
+                        </div>
+                        <div class="food-option" onclick="selectFood('본도시락', this)">
+                            <img src="assets/dosirak.png" alt="Bon Dosirak">
+                        </div>
+                        <div class="food-option" onclick="selectFood('Canteen', this)">
+                            <img src="assets/sigdang.png" alt="Canteen">
                         </div>
                         <div class="food-option" onclick="selectFood('others', this)">
                             <img src="assets/others.png" alt="others">
@@ -62,7 +68,7 @@
                 </div>
                 <input type="text" id="otherFoodInput" class="hidden" placeholder="Please specify">
             </div>
-            <input type="button" value="Next" onclick="checkFood()">
+            <input type="button" value="다음" onclick="checkFood()">
         </div>
 
         <div id="question3" class="question hidden">
@@ -71,14 +77,14 @@
                 <option value="dinein">Dine In</option>
                 <option value="togo">To Go</option>
             </select>
-            <input type="button" value="Back" onclick="goBackToQuestion2()">
-            <input type="button" value="Submit" onclick="submitForm()">
+            <input type="button" value="뒤로" onclick="goBackToQuestion2()">
+            <input type="button" value="다음" onclick="submitForm()">
         </div>
 
         <div id="summary" class="question hidden">
-            <h3>ALL DONE! SO...</h3>
+            <h3>끝났어! ALL DONE!☺️ SO...</h3>
             <p id="summaryText"></p>
-            <input type="button" id="sendReceiptBtn" value="Print" onclick="generatePDF()">
+            <input type="button" id="sendReceiptBtn" value="프린트" onclick="generatePDF()">
         </div>
     </div>
     <audio id="backgroundMusic" loop>
