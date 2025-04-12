@@ -3,11 +3,11 @@ let selectedElement = null;
 
 function checkName() {
     var name = document.getElementById('name').value;
-    if (name.toLowerCase() === 'cilla') {
+    if (name.toLowerCase() === 'cilla' || name.toLowerCase() === 'priscilla') {
         document.getElementById('question1').classList.add('hidden');
         document.getElementById('question2').classList.remove('hidden');
     } else {
-        alert('Sorry, this is only for Cilla!');
+        alert('Sorry, this invitation is only for Cilla!');
     }
 }
 
@@ -42,7 +42,7 @@ function checkFood() {
     var otherFoodInput = document.getElementById('otherFoodInput').value;
 
     if (!selectedFood || (selectedFood === 'others' && !otherFoodInput.trim())) {
-        alert("Please select a food option and specify your choice for 'Others' if applicable.");
+        alert("Pilih dulu makan apa Cilla");
         return;
     }
 
@@ -57,7 +57,7 @@ function submitForm() {
     var food = (selectedFood === 'others' && otherFoodInput.trim()) ? otherFoodInput : selectedFood;
 
     if (!food) {
-        alert("Please specify your food choice.");
+        alert("Kalo others makan apa?");
         return;
     }
 
