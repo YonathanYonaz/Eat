@@ -3,11 +3,11 @@ let selectedElement = null;
 
 function checkName() {
     var name = document.getElementById('name').value;
-    if (name.toLowerCase() === 'cilla' || name.toLowerCase() === 'priscilla') {
+    if (name.toLowerCase() === 'cilla' || name.toLowerCase() === 'priscilla' || name.toLowerCase() === 'ai cing' || name.toLowerCase() === 'huang ai qing' {
         document.getElementById('question1').classList.add('hidden');
         document.getElementById('question2').classList.remove('hidden');
     } else {
-        alert('Sorry, this invitation is only for Cilla!');
+        alert('Sorry, this is only for Cilla!');
     }
 }
 
