@@ -3,7 +3,7 @@ let selectedElement = null;
 
 function checkName() {
     var name = document.getElementById('name').value;
-    if (name.toLowerCase() === 'cilla' || name.toLowerCase() === 'priscilla'{
+    if (name.toLowerCase() === 'cilla') {
         document.getElementById('question1').classList.add('hidden');
         document.getElementById('question2').classList.remove('hidden');
     } else {
